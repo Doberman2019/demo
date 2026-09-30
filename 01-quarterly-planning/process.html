@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Квартальное планирование</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#E9E4F0; --card:#FFFFFF; --ink:#2A2540; --muted:#5B5670; --soft:#8A84A0;
+    --line:#7B5CE6; --line-soft:#B8A9EE; --deliv:#6A3FD9;
+    --r-st:#2BB8C4; --r-hd:#C2267A; --r-fo:#3BA55C; --r-dv:#E0A526;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+       -webkit-font-smoothing:antialiased;padding:48px 16px 64px}
+  .wrap{max-width:1320px;margin:0 auto}
+
+  header{margin-bottom:36px}
+  h1{font-size:26px;font-weight:700;letter-spacing:-.01em}
+  .sub{color:var(--muted);font-size:14.5px;line-height:1.5;margin-top:8px;max-width:720px}
+  .legend{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:18px}
+  .legend span{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+
+  .av{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;
+      color:#fff;font-size:11px;font-weight:700;flex-shrink:0;box-shadow:0 0 0 2px var(--bg)}
+  .av + .av{margin-left:-6px}
+  .st{background:var(--r-st)} .hd{background:var(--r-hd)} .fo{background:var(--r-fo)} .dv{background:var(--r-dv)}
+
+  .label{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--soft)}
+
+  /* timeline grid */
+  .board{display:grid;grid-template-columns:repeat(4,1fr);column-gap:56px;position:relative}
+  .phase{grid-row:1;padding:0 0 18px;border-top:2px dotted var(--line-soft);position:relative}
+  .phase .label{position:relative;z-index:2;top:-9px;background:var(--bg);padding-right:10px}
+  .phase{z-index:2}
+  .lead{grid-row:2;border-top:1px solid var(--line-soft);padding:14px 0 26px;font-size:12px;letter-spacing:.16em;
+        text-transform:uppercase;color:var(--muted);font-weight:600;text-align:center;position:relative;z-index:1}
+  .lead span{background:var(--bg);padding:0 10px}
+  .col{grid-row:3;position:relative;padding-left:0}
+  .col::before{content:"";position:absolute;left:28px;top:-86px;bottom:0;width:1px;background:var(--line-soft)}
+
+  .card{position:relative;z-index:1;background:var(--card);border-radius:10px;padding:20px 22px;
+        box-shadow:0 10px 30px -12px rgba(60,40,120,.28);min-height:132px}
+  .card h2{font-size:19px;font-weight:700;margin-bottom:8px}
+  .card p{font-size:13px;line-height:1.5;color:var(--muted)}
+  .arrow{position:absolute;right:-50px;top:62px;width:44px;height:14px;z-index:2}
+  .arrow line{stroke:var(--line);stroke-width:2}
+  .arrow path{fill:none;stroke:var(--line);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+  .steps{padding:28px 0 8px 22px;position:relative;z-index:1}
+  .step{position:relative;padding-left:26px;margin-bottom:26px}
+  .step::before{content:"";position:absolute;left:0;top:5px;width:12px;height:12px;border-radius:50%;background:var(--line)}
+  .step-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .step-head .label{color:var(--ink);letter-spacing:.2em;font-size:10.5px}
+  .item{font-size:12.5px;line-height:1.5;color:var(--muted);margin:0 0 10px 0}
+  .item b{color:var(--ink);font-weight:600}
+  .deliv{font-size:12.5px;line-height:1.5;color:var(--deliv);font-weight:600;margin-top:4px}
+  .deliv a{color:var(--deliv)}
+
+  .end{position:absolute;right:-50px;top:52px;width:44px;height:44px}
+
+  footer{margin-top:28px;font-size:12.5px;color:var(--soft)}
+  footer a{color:var(--deliv)}
+
+  @media (max-width:1000px){
+    .board{grid-template-columns:1fr;column-gap:0}
+    .phase,.lead{display:none}
+    .col{grid-row:auto !important;grid-column:1 !important;margin-bottom:24px}
+    .col::before{top:0}
+    .col .m-phase{display:block}
+    .arrow,.end{display:none}
+  }
+  .m-phase{display:none;margin-bottom:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a href="./" style="display:inline-block;font-size:13px;color:#5B5670;text-decoration:none;margin-bottom:14px">← К кейсу</a>
+    <h1>Процесс квартального планирования бэклога</h1>
+    <p class="sub">TO-BE процесс, который я спроектировал и внедрил: от задач Stakeholders до комитмента Development Teams на квартал. Маркетплейс, две кросс-функциональные команды.</p>
+    <div class="legend">
+      <span><i class="av st">S</i>Stakeholder</span>
+      <span><i class="av hd">P</i>Product Owner</span>
+      <span><i class="av fo">F</i>Feature Owner</span>
+      <span><i class="av dv">D</i>Development Team</span>
+    </div>
+  </header>
+
+  <div class="board">
+    <div class="phase" style="grid-column:1 / span 2"><span class="label">Бизнес формирует запрос</span></div>
+    <div class="phase" style="grid-column:3"><span class="label">Оценка</span></div>
+    <div class="phase" style="grid-column:4"><span class="label">Фиксация</span></div>
+
+    <div class="lead" style="grid-column:1 / span 2"><span>Ведёт Product Owner</span></div>
+    <div class="lead" style="grid-column:3"><span>Ведут Feature Owners</span></div>
+    <div class="lead" style="grid-column:4"><span>Ведёт Product Owner</span></div>
+
+    <!-- 1 -->
+    <div class="col" style="grid-column:1">
+      <div class="m-phase label">Бизнес формирует запрос</div>
+      <div class="card">
+        <h2>Сбор задач</h2>
+        <p>Stakeholders формулируют задачи для Development Teams, Product Owner сводит их в единый список.</p>
+        <svg class="arrow" viewBox="0 0 44 14"><line x1="0" y1="7" x2="41" y2="7"/><path d="M35 1 L42 7 L35 13"/></svg>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-head"><span class="label">Запрос</span><i class="av st">S</i></div>
+          <p class="item"><b>Постановка</b> — Stakeholder описывает задачи для Development Team маркетплейса.</p>
+        </div>
+        <div class="step">
+          <div class="step-head"><span class="label">Сверка</span><i class="av hd">P</i></div>
+          <p class="item"><b>Сбор</b> — Product Owner собирает задачи от всех Stakeholders.</p>
+          <p class="item"><b>Проверка</b> — по каждому Stakeholder подтверждается, что задачи в списке действительно его.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="col" style="grid-column:2">
+      <div class="card">
+        <h2>Приоритизация</h2>
+        <p>Задачи ранжируются внутри каждого Направления: покупатели, продавцы, офлайн-магазины, новые направления и прочие — состав меняется от квартала к кварталу.</p>
+        <svg class="arrow" viewBox="0 0 44 14"><line x1="0" y1="7" x2="41" y2="7"/><path d="M35 1 L42 7 L35 13"/></svg>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-head"><span class="label">Ранжирование</span><i class="av hd">P</i><i class="av st">S</i></div>
+          <p class="item"><b>Приоритеты</b> — Product Owner расставляет их совместно со Stakeholders Направления.</p>
+        </div>
+        <div class="step">
+          <div class="step-head"><span class="label">Стандарт задачи</span></div>
+          <p class="item"><b>Обязательные атрибуты</b> — Направление, Stakeholder, команда, ссылка на задачу с описанием, дедлайн, приоритет в Направлении.</p>
+          <p class="deliv">Результат: приоритизированный список по Направлениям.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="col" style="grid-column:3">
+      <div class="m-phase label">Оценка</div>
+      <div class="card">
+        <h2>Распределение и оценка</h2>
+        <p>Задачи распределяются по доменам между Development Teams и получают оценку команд.</p>
+        <svg class="arrow" viewBox="0 0 44 14"><line x1="0" y1="7" x2="41" y2="7"/><path d="M35 1 L42 7 L35 13"/></svg>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-head"><span class="label">Распределение</span><i class="av hd">P</i><i class="av fo">F</i></div>
+          <p class="item"><b>Синхронизация</b> — Product Owner и Feature Owners закрепляют, какая Development Team берёт какие задачи.</p>
+        </div>
+        <div class="step">
+          <div class="step-head"><span class="label">Оценка</span><i class="av fo">F</i><i class="av dv">D</i></div>
+          <p class="item"><b>Оценка бэклога</b> — Feature Owners оценивают задачи вместе с Development Teams.</p>
+          <p class="item"><b>Отбор</b> — в квартал попадает то, что помещается в капасити с учётом долей Направлений по OPSP.</p>
+          <p class="deliv">Результат: рассчитанная корзина задач в калькуляторе.<br><a href="calculator/index.html">Расчёт капасити — в калькуляторе →</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="col" style="grid-column:4">
+      <div class="m-phase label">Фиксация</div>
+      <div class="card">
+        <h2>Петля согласований</h2>
+        <p>Приоритизированный список задач по Направлениям согласовывается между Feature Owners, Product Owner и Stakeholders, чтобы сформировать итоговый список.</p>
+        <svg class="end" viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="#fff" stroke="#7B5CE6" stroke-width="4"/></svg>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-head"><span class="label">Передача</span><i class="av fo">F</i></div>
+          <p class="item"><b>Список на квартал</b> — Feature Owners передают Product Owner задачи по Направлениям, готовые к работе.</p>
+        </div>
+        <div class="step">
+          <div class="step-head"><span class="label">Утверждение</span><i class="av hd">P</i><i class="av fo">F</i><i class="av st">S</i></div>
+          <p class="item"><b>Итоговый список</b> — Product Owner согласует его с Feature Owners и Stakeholders.</p>
+          <p class="deliv">Результат: комитмент Development Teams на квартал.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>Названия Направлений и данные задач обезличены, структура процесса реальная. · <a href="calculator/index.html">Калькулятор капасити</a></footer>
+</div>
+</body>
+</html>

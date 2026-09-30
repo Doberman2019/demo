@@ -1,0 +1,57 @@
+{
+  "config": {
+    "start": "2026-10-01",
+    "end": "2026-12-31",
+    "asOf": "2026-10-01",
+    "hoursPerDay": 8,
+    "focus": 65
+  },
+  "holidays": ["2026-11-04"],
+  "people": [
+    { "id": "p01be", "name": "Алексей", "disc": "be", "alloc": 100, "timeOff": [] },
+    { "id": "p02be", "name": "Игорь", "disc": "be", "alloc": 100, "timeOff": [ { "from": "2026-11-09", "to": "2026-11-20" } ] },
+    { "id": "p03fe", "name": "Мария", "disc": "fe", "alloc": 100, "timeOff": [] },
+    { "id": "p04de", "name": "Ольга", "disc": "de", "alloc": 50, "timeOff": [] },
+    { "id": "p05qa", "name": "Дмитрий", "disc": "qa", "alloc": 100, "timeOff": [ { "from": "2026-12-21", "to": "2026-12-31" } ] },
+    { "id": "p06qa", "name": "Анна", "disc": "qa", "alloc": 100, "timeOff": [] },
+    { "id": "p07an", "name": "Павел", "disc": "an", "alloc": 20, "timeOff": [] }
+  ],
+  "stakeholders": [
+    { "id": "s01buy", "name": "Покупатели", "pct": 45, "color": "#2D6A8E", "collapsed": false },
+    { "id": "s02sel", "name": "Продавцы", "pct": 25, "color": "#B0492E", "collapsed": false },
+    { "id": "s03off", "name": "Офлайн-магазины", "pct": 15, "color": "#4E7A3A", "collapsed": false },
+    { "id": "s04new", "name": "Новые направления", "pct": 15, "color": "#8E5AA6", "collapsed": false }
+  ],
+  "sizes": [
+    { "key": "XS", "points": 1, "hours": 3 },
+    { "key": "S", "points": 2, "hours": 5 },
+    { "key": "M", "points": 8, "hours": 20 },
+    { "key": "L", "points": 32, "hours": 80 },
+    { "key": "XL", "points": 128, "hours": 320 },
+    { "key": "XXL", "points": 512, "hours": 1280 }
+  ],
+  "ref": { "hours": 5, "size": "S" },
+  "tasks": [
+    { "id": "t01", "name": "Сравнение товаров: до 4 карточек на одной странице", "stakeholder": "s01buy", "size": "L", "discs": ["be", "fe", "qa", "de"] },
+    { "id": "t02", "name": "Фильтр каталога по наличию в городе покупателя", "stakeholder": "s01buy", "size": "M", "discs": ["be", "fe", "qa"] },
+    { "id": "t03", "name": "Блок «С этим товаром покупают» на карточке товара", "stakeholder": "s01buy", "size": "M", "discs": ["be", "fe", "qa"] },
+    { "id": "t04", "name": "Ускорить загрузку страниц каталога", "stakeholder": "s01buy", "size": "", "discs": ["fe", "qa"] },
+    { "id": "t05", "name": "Раздел «Вопросы и ответы» на карточке товара", "stakeholder": "s01buy", "size": "XL", "discs": ["be", "fe", "qa", "de"] },
+    { "id": "t06", "name": "Доработать фильтр по цене: ввод диапазона вручную", "stakeholder": "s01buy", "size": "XS", "discs": ["fe", "qa"] },
+    { "id": "t07", "name": "Подписка на снижение цены", "stakeholder": "s01buy", "size": "S", "discs": ["be", "fe", "qa"] },
+    { "id": "t08", "name": "Перевести страницы оформления заказа на новый UI-kit", "stakeholder": "s01buy", "size": "XL", "discs": ["fe", "de"] },
+    { "id": "t09", "name": "Загрузка товаров продавцом из Excel-файла", "stakeholder": "s02sel", "size": "L", "discs": ["be", "fe", "qa", "de", "an"] },
+    { "id": "t10", "name": "Пошаговая форма создания товара в кабинете продавца", "stakeholder": "s02sel", "size": "M", "discs": ["be", "fe", "qa", "de"] },
+    { "id": "t11", "name": "Поиск категорий и брендов при создании товара", "stakeholder": "s02sel", "size": "M", "discs": ["be", "fe", "qa"] },
+    { "id": "t12", "name": "Упростить регистрацию и активацию продавца", "stakeholder": "s02sel", "size": "XXL", "discs": [] },
+    { "id": "t13", "name": "Подсказка обязательных полей при заполнении карточки", "stakeholder": "s02sel", "size": "XS", "discs": ["fe", "qa"] },
+    { "id": "t14", "name": "Редактирование опубликованных карточек продавцом", "stakeholder": "s02sel", "size": "", "discs": [] },
+    { "id": "t15", "name": "Остатки офлайн-магазинов в карточке товара", "stakeholder": "s03off", "size": "L", "discs": ["be", "fe", "qa"] },
+    { "id": "t16", "name": "Самовывоз из магазина: выбор времени получения", "stakeholder": "s03off", "size": "M", "discs": ["be", "fe", "qa", "de"] },
+    { "id": "t17", "name": "Отчёт по заказам с самовывозом для директоров магазинов", "stakeholder": "s03off", "size": "S", "discs": ["be", "qa"] },
+    { "id": "t18", "name": "Гипотеза: автозаполнение описаний товаров с помощью AI", "stakeholder": "s04new", "size": "XL", "discs": [] },
+    { "id": "t19", "name": "Гипотеза: подписка на регулярную доставку расходников", "stakeholder": "s04new", "size": "", "discs": [] },
+    { "id": "t20", "name": "Пилот: конструктор подарочных наборов", "stakeholder": "s04new", "size": "L", "discs": ["be", "fe", "qa", "de"] }
+  ],
+  "noneCollapsed": false
+}

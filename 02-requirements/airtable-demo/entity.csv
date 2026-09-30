@@ -1,0 +1,10 @@
+CODE,Name,Status,Link,Author,Editor,Function
+ENT.PRODUCT,Товар,Done,,Мария Соколова,Мария Соколова,"FN.COMPARE_ADD, FN.CART_ADD"
+ENT.OFFER,Оффер,Done,,Мария Соколова,Илья Карпов,"FN.MAIN_OFFER_DEFINE, FN.COMPARE_PRICE_SAVE"
+ENT.CATEGORY,Категория каталога,Done,,Илья Карпов,Илья Карпов,FN.COMPARE_CATEGORY_DEFINE
+OBJ.CMPLST,Список сравнения,Done,,Vladimir S,Vladimir S,"FN.COMPARE_LIST_CREATE, FN.COMPARE_ADD"
+ENT.CART,Корзина,Done,,Мария Соколова,Мария Соколова,"FN.CART_ADD, FN.CART_QTY_CHANGE"
+ENT.CITY,Город,Draft,,Илья Карпов,Илья Карпов,FN.CITY_DEFINE
+ENT.PROMOCODE,Промокод,In progress,,Павел Орлов,Павел Орлов,FN.PROMO_APPLY
+ENT.PRICE_SUBSCRIPTION,Подписка на снижение цены,Draft,,Илья Карпов,Илья Карпов,FN.PRICE_SUBSCRIBE
+ENT.STORE,Магазин / склад,Done,,Павел Орлов,Мария Соколова,FN.MAIN_OFFER_DEFINE

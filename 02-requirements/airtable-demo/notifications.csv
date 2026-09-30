@@ -1,0 +1,9 @@
+CODE,Recipient,Name,Status,Trigger,Type,eMail,"Чат ""системные уведомления""","Чат ""продавец-покупатель""",SMS,TG Bot,Web-push,Mobile push,Escalation,Notes,Author,Last edit,Relation with AB,Some kind of process,Abilities copy
+NT.PRICE_DROP_COMPARE,Покупатель,Снизилась цена товара в сравнении,Ready,Цена основного оффера стала ниже сохранённой цены в OBJ.CMPLST,Маркетинговое,checked,,,,,checked,checked,,Не чаще 1 раза в сутки по одному товару,Анна Морозова,12/4/2026,,,
+NT.COMPARE_ITEM_SOLD_OUT,Покупатель,Товар из сравнения распродан,Draft,Состояние элемента OBJ.CMPLST сменилось на «Распродано»,Сервисное,,,,,,checked,checked,,,Анна Морозова,12/4/2026,,,
+NT.PRICE_SUBSCRIPTION,Покупатель,Цена снизилась (подписка),Draft,Срабатывание FN.PRICE_SUBSCRIBE,Маркетинговое,checked,,,,checked,,checked,,,Илья Карпов,22/4/2026,,,
+NT.ORDER_CREATED,Покупатель,Заказ оформлен,Ready,Создан заказ,Транзакционное,checked,checked,,checked,,,checked,,,Павел Орлов,05/2/2026,,,
+NT.ORDER_READY_PICKUP,Покупатель,Заказ готов к выдаче,Ready,Статус заказа = «Готов к выдаче»,Транзакционное,,checked,,checked,,,checked,"Повтор через 24 ч, если заказ не забран",Хранение 3 дня,Павел Орлов,05/2/2026,,,
+NT.NEW_MESSAGE_BUYER,Продавец,Новое сообщение от покупателя,Ready,Покупатель написал в чат,Сервисное,checked,,checked,,checked,,,Руководителю магазина через 2 ч без ответа,,Мария Соколова,20/3/2026,,,
+NT.REVIEW_PUBLISHED,Покупатель,Отзыв опубликован,Feedback,Отзыв прошёл модерацию,Сервисное,,checked,,,,,checked,,,Анна Морозова,18/3/2026,,,
+NT.CART_ITEM_UNAVAILABLE,Покупатель,Товар в корзине больше недоступен,Ready,Статус оффера в корзине сменился на «Распродано»,Сервисное,,,,,,checked,checked,,,Мария Соколова,02/2/2026,,,

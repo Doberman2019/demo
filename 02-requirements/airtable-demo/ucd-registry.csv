@@ -1,0 +1,11 @@
+UCD Name,CODE name,Status,Latest up-to-date version, Notes,Domen area,Валидация на:,Autor,Last modified by
+Добавить товар к сравнению,UCD.COMPARE_LIST,Ready,1.1,Link to UCD: use-case.drawio,Каталог,,Vladimir S,Vladimir S
+Просмотр списка сравнения,UCD.COMPARE_VIEW,In progress,1.0,Link to UCD: compare-view.drawio,Каталог,Frontend,Анна Морозова,Анна Морозова
+Удалить товар из сравнения,UCD.COMPARE_REMOVE,Draft,0.9,Link to UCD: compare-remove.drawio,Каталог,,Анна Морозова,Анна Морозова
+Выбор города доставки,UCD.CITY_SELECT,Ready,2.0,Link to UCD: city-select.drawio,Профиль,"Backend, Frontend",Илья Карпов,Мария Соколова
+Добавить товар в корзину,UCD.CART_ADD,Ready,1.3,Link to UCD: cart-add.drawio,Корзина,"Backend, Frontend",Мария Соколова,Мария Соколова
+Изменить количество товара в корзине,UCD.CART_QTY,Ready,1.2,Link to UCD: cart-qty.drawio,Корзина,Frontend,Мария Соколова,Илья Карпов
+Применить промокод,UCD.PROMO_APPLY,Feedback,1.0,Link to UCD: promo.drawio,Заказы,Backend,Павел Орлов,Павел Орлов
+Оформить заказ с самовывозом,UCD.ORDER_PICKUP,In progress,1.1,Link to UCD: order-pickup.drawio,Заказы,,Павел Орлов,Анна Морозова
+Подписаться на снижение цены,UCD.PRICE_SUBSCRIBE,Draft,0.5,Link to UCD: price-subscribe.drawio,Уведомления,,Илья Карпов,Илья Карпов
+Оставить отзыв о товаре,UCD.REVIEW_ADD,Feedback,1.0,Link to UCD: review-add.drawio,Профиль,Frontend,Анна Морозова,Мария Соколова

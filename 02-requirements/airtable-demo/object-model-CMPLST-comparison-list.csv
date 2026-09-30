@@ -1,0 +1,14 @@
+Attribute name,Description,Type OM,Status,Values,Restriction/Logic,Comment,Version,❗,🌐,🦄,⇅,☑,Author,Last editor,POST,GET,Attach
+_OBJECTINFO,"Список товаров, которые покупатель сравнивает между собой",,!UPDATED!,,,,,,,,,,Vladimir S,Vladimir S,,,
+Идентификатор,,Generated,Ready,,,,"1.0,1.1",checked,,checked,,,Vladimir S,Vladimir S,Nobody,Owner,
+Пользователь владелец,Владелец списка,UserID,Ready,,,,"1.0,1.1",checked,,,,,Vladimir S,Vladimir S,,,
+Категория списка,Товары какой категории сравниваются в списке,Link,Ready,,"- Только категории 3 уровня (без дочерних)
+- Выбирать основную категорию Товара",,"1.0,1.1",checked,,checked,,,Vladimir S,Vladimir S,,,
+Имя списка,Имя списка сравнения для пользователя,Text/Digits,Ready,== имени категории списка,,,"1.0,1.1",checked,checked,checked,,,Vladimir S,Vladimir S,,,
+Элементы списка,Список товаров к сравнению,Soft List,Ready,"- Товар (набор товаров)
+- Выбранный оффер
+- Состояние товара (варианты значений)
+    - Доступно для покупки (вариант по умолчанию)
+    - Распродано","- Товар уникален
+- Для создания списка в нём должен быть мин. один элемент
+- Макс. 20 элементов в списке",,1.1,checked,,,,,Vladimir S,Vladimir S,,,
