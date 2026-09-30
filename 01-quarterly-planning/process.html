@@ -61,13 +61,9 @@
 
   .end{position:absolute;right:-50px;top:52px;width:44px;height:44px}
 
-  /* embedded inside the case page */
-  html.embed body{padding:24px 16px 8px;background:transparent}
-  html.embed .back-link, html.embed .ttl, html.embed footer, html.embed .end{display:none!important}
-  html.embed .board{column-gap:36px}
-  html.embed .arrow{right:-33px;width:30px}
-  html.embed header{margin-bottom:26px}
-  html.embed .legend{margin-top:0}
+  /* embedded inside the case page: same layout as standalone, only the back link is hidden */
+  html.embed body{background:transparent}
+  html.embed .back-link{display:none!important}
   footer{margin-top:28px;font-size:12.5px;color:var(--soft)}
   footer a{color:var(--deliv)}
 
