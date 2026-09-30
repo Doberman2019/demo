@@ -66,10 +66,9 @@
     <span class="label">03 · Процесс</span>
     <h2>TO-BE: от задач стейкхолдеров до комитмента на квартал</h2>
     <figure>
-      <a class="shot" href="process.html"><img src="img/process.png" alt="Схема процесса квартального планирования: сбор задач, приоритизация, распределение и оценка, петля согласований"></a>
+      <div class="shot embed-frame"><iframe id="processFrame" src="process.html" title="Схема процесса квартального планирования" loading="lazy" scrolling="no"></iframe></div>
       <figcaption>Четыре этапа: сбор задач → приоритизация по Направлениям → распределение по доменам и оценка командами → петля согласований. У каждого шага — роли-участники и результат.</figcaption>
     </figure>
-    <div class="btns"><a class="btn" href="process.html">Открыть схему процесса →</a></div>
   </section>
 
   <!-- 4 -->
@@ -107,5 +106,13 @@
   </section>
 
 </div>
+<script>
+  (function(){
+    var f=document.getElementById('processFrame');
+    function fit(){ try{ var d=f.contentDocument; f.style.height = Math.ceil(d.body.getBoundingClientRect().height) + 'px'; }catch(e){} }
+    f.addEventListener('load', function(){ fit(); setTimeout(fit, 400); setTimeout(fit, 1500); });
+    window.addEventListener('resize', function(){ setTimeout(fit, 150); });
+  })();
+</script>
 </body>
 </html>

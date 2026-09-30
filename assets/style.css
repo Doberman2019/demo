@@ -100,3 +100,5 @@
     a.case{grid-template-columns:1fr}
     a.case img{height:160px}
   }
+  .embed-frame{padding:0;background:var(--bg)}
+  .embed-frame iframe{display:block;width:100%;height:1100px;border:0;border-radius:12px}
