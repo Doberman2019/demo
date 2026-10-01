@@ -15,123 +15,67 @@
     <a class="back" href="../index.html">← Все кейсы</a><br>
     <span class="label">Кейс · требования</span>
     <h1>Сравнение товаров на маркетплейсе</h1>
-    <p class="lead">Требования к фиче «Добавить товар к сравнению»: use case и объектная модель в собственной нотации, где каждый шаг сценария связан с записью в базе требований.</p>
+    <p class="lead">Перенос сравнения товаров из интернет-магазина в маркетплейс, где у одного товара много офферов разных продавцов.</p>
     <div class="meta">
-      <span class="chip"><b>Роль:</b> системный / бизнес-аналитик</span>
-      <span class="chip"><b>Артефакты:</b> use case, объектная модель, экраны</span>
+      <span class="chip"><b>Роль:</b> Systems Analyst / Business Analyst</span>
+      <span class="chip"><b>Артефакты:</b> use case, business object model, view</span>
       <span class="chip"><b>Версия:</b> 1.1 · Ready</span>
     </div>
   </header>
 
-  <!-- 1 -->
   <section>
-    <span class="label">01 · Контекст</span>
-    <h2>Перенести фичу из интернет-магазина в маркетплейс</h2>
-    <div class="text">
-      <p>Сравнение товаров уже было в старом интернет-магазине. Его нужно было перенести на маркетплейс и <b>адаптировать под новую архитектуру каталога</b>.</p>
-      <p>Главное отличие: в маркетплейсе у одного <b>товара</b> может быть много <b>офферов</b> — предложений разных продавцов и магазинов со своими ценами и наличием. Требования должны были ответить, что именно сравнивается и какую цену показывать.</p>
-    </div>
-  </section>
-
-  <!-- 2 -->
-  <section>
-    <span class="label">02 · Ключевые решения</span>
-    <h2>Что зафиксировано в требованиях</h2>
-    <div class="grid">
+    <span class="label">01 · Ключевые решения</span>
+    <div class="grid" style="margin-top:12px">
       <div class="card decision"><span class="num">1</span>
         <h3>Сравниваем товар, а не оффер</h3>
-        <p>Можно добавить с карточки товара или с карточки оффера — в список всегда попадает товар.</p></div>
+        <p>Даже если добавили с карточки оффера.</p></div>
       <div class="card decision"><span class="num">2</span>
         <h3>Один список — одна категория</h3>
-        <p>Список сравнения создаётся на основную категорию товара, только 3-го уровня. Имя списка = имя категории.</p></div>
+        <p>Основная категория товара, 3-й уровень.</p></div>
       <div class="card decision"><span class="num">3</span>
         <h3>Цена фиксируется при добавлении</h3>
-        <p>С карточки товара — цена основного оффера (ближайший магазин с наличием). С карточки оффера — цена этого оффера. Добавлено в версии 1.1.</p></div>
+        <p>Основной оффер или оффер со страницы, с которой добавили.</p></div>
       <div class="card decision"><span class="num">4</span>
-        <h3>Ограничения списка</h3>
-        <p>Товар в списке уникален, не больше 20 товаров, список не бывает пустым. Сравнение доступно только аутентифицированному пользователю.</p></div>
+        <h3>Ограничения</h3>
+        <p>Товар уникален, до 20 в списке, только после входа.</p></div>
     </div>
   </section>
 
-  <!-- 3 -->
   <section>
-    <span class="label">03 · Use case</span>
-    <h2>Сценарий UCD.COMPARE_LIST</h2>
-    <figure>
-      <div class="shot scroll"><img src="img/use-case.png" alt="Use case: добавление товара к сравнению — дорожки Пользователь и Система, развилки и системные события"></div>
-      <figcaption>Слева паспорт сценария: код, версия, статус, автор, даты, ссылки на задачу и обсуждение. Сверху — действия пользователя, снизу — события системы. Пунктир показывает, какое действие порождает событие.</figcaption>
+    <span class="label">02 · Use case</span>
+    <figure style="margin-top:12px">
+      <div class="shot scroll"><img src="img/use-case.png" alt="Use case UCD.COMPARE_LIST: добавление товара к сравнению"></div>
+      <figcaption>Системные события в интерактивной схеме ведут в записи базы требований.</figcaption>
     </figure>
     <div class="btns">
       <a class="btn" id="openDiagram" href="use-case.drawio" target="_blank" rel="noopener">Открыть интерактивную схему →</a>
       <a class="btn ghost" href="use-case.drawio" download>Скачать .drawio</a>
     </div>
-    <p class="text" style="margin-top:12px;font-size:13.5px">В интерактивной схеме системные события кликабельны — они ведут в конкретные записи живой базы требований.</p>
   </section>
 
-  <!-- 4 -->
   <section>
-    <span class="label">04 · Нотация</span>
-    <h2>Как связаны артефакты</h2>
-    <div class="map">
-      <div class="card">
-        <p class="text" style="font-size:14px;margin-bottom:14px">У каждого блока схемы есть <b>тип</b> и поля для кодов связанных записей (<code>_ENTITY_CODE</code>, <code>_FUNCTION_CODE</code>, <code>_VIEW_CODE</code>…).</p>
-        <div class="types">
-          <div class="type"><i class="t-edge">START / END</i><span>Границы сценария</span></div>
-          <div class="type"><i class="t-action">Action</i><span><b>Действие пользователя</b></span></div>
-          <div class="type"><i class="t-view">View</i><span><b>Экран</b> — ссылается на запись <code>VW.</code></span></div>
-          <div class="type"><i class="t-select">Select</i><span><b>Развилка</b> — условие с ветками Да / Нет</span></div>
-          <div class="type"><i class="t-sys">System Event</i><span><b>Событие системы</b> — ссылается на объект и атрибут</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <p class="text" style="font-size:14px;margin-bottom:14px">База требований в Airtable: у каждой записи код, статус, версия, автор.</p>
-        <div class="tables">
-          <div class="tbl"><span class="code">UCD</span><p>Реестр сценариев: домен, версия, ссылка на схему</p></div>
-          <div class="tbl"><span class="code">OBJ / ENT</span><p>Объектная модель: атрибуты, типы, ограничения, права API</p></div>
-          <div class="tbl"><span class="code">FN</span><p>Функции: логика, ограничения, связь с сущностью</p></div>
-          <div class="tbl"><span class="code">VW</span><p>Экраны и фронтовая логика для web и mobile</p></div>
-          <div class="tbl"><span class="code">NT</span><p>Уведомления: триггер, получатель, каналы</p></div>
-          <div class="tbl"><span class="code">Версии</span><p>Атрибуты помечены версиями, синхронно с версиями схемы</p></div>
-        </div>
-        <div class="flow">
-          <span class="n">UCD</span>→<span class="n">шаг System Event</span>→<span class="n">OBJ.CMPLST · атрибут</span>→<span class="n">FN / VW / NT</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5 -->
-  <section>
-    <span class="label">05 · Данные</span>
-    <h2>Объектная модель и реестр сценариев</h2>
-    <figure>
-      <div class="shot"><img src="img/airtable-object-model.png" alt="Объектная модель списка сравнения в Airtable: карточка атрибута «Категория списка»"></div>
-      <figcaption><b>Объектная модель списка сравнения (OBJ.CMPLST).</b> Для каждого атрибута: тип, значения, ограничения, версия и флаги — обязательное, переводимое, уникальное, сортируемое, фильтруемое.</figcaption>
+    <span class="label">03 · База требований</span>
+    <figure style="margin-top:12px">
+      <div class="shot"><img src="img/airtable-object-model.png" alt="Business object model списка сравнения в Airtable"></div>
+      <figcaption>Business object model: атрибуты, типы, ограничения, версии.</figcaption>
     </figure>
     <figure style="margin-top:22px">
       <div class="shot"><img src="img/airtable-ucd-registry.png" alt="Реестр use case в Airtable"></div>
-      <figcaption><b>Реестр сценариев.</b> Все use case продукта с доменом, статусом и актуальной версией.</figcaption>
+      <figcaption>Реестр use case с доменами, статусами и версиями.</figcaption>
     </figure>
     <div class="btns">
       <a class="btn" href="https://airtable.com/appkCxmTU8Q8k0jHV/shrQhf3GIpDrOAhGx/tblS5YbAALDuVQhUl/viwla3SgRHSN2WPJd" target="_blank" rel="noopener">Открыть живую базу →</a>
     </div>
   </section>
 
-  <!-- 6 -->
   <section>
-    <span class="label">06 · Итог</span>
-    <h2>Что показывает кейс</h2>
     <div class="card">
       <ul class="clean">
-        <li><b>Мой вклад:</b> use case, объектная модель списка сравнения и логика выбора оффера — моё авторство.</li>
-        <li><b>Трассировка:</b> от шага сценария можно перейти к конкретному атрибуту объекта и обратно — по коду.</li>
-        <li><b>Версионирование:</b> изменение 1.0 → 1.1 (фиксация цены) отражено и в схеме, и в атрибутах объекта.</li>
-        <li><b>Что обезличено:</b> названия сущностей, коды и ссылки заменены. Остальные записи базы — вымышленные демо-данные, их авторы вымышлены. Структура нотации и логика фичи — реальные.</li>
+        <li><b>Моё авторство:</b> use case, business object model списка сравнения, логика выбора оффера. Остальные записи базы — демо-данные.</li>
       </ul>
     </div>
   </section>
 
-  <footer>Кейс из портфолио. Данные обезличены.</footer>
 </div>
 <script>
   // Interactive diagram: open the .drawio from this site in the diagrams.net viewer (works once published over http/https)
